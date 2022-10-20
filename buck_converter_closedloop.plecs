@@ -1,0 +1,725 @@
+Plecs {
+  Name          "buck_converter_closedloop"
+  Version       "4.6"
+  CircuitModel  "ContStateSpace"
+  StartTime     "0.0"
+  TimeSpan      "0.1"
+  Timeout       ""
+  Solver        "dopri"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "1e-3"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  InitializationCommands "v_in = 12;"
+  InitialState  "1"
+  SystemState   ""
+  TaskingMode   "1"
+  TaskConfigurations ""
+  CodeGenParameterInlining "2"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "Generic"
+  CodeGenTargetSettings ""
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings ""
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  ScriptsDialogGeometry ""
+  ScriptsDialogSplitterPos "0"
+  Schematic {
+    Location      [583, 294; 2277, 1319]
+    ZoomFactor    1.74806
+    SliderPosition [0, 0]
+    ShowBrowser   on
+    BrowserWidth  158
+    Component {
+      Type          PlecsProbe
+      Name          "Probe"
+      Show          on
+      Position      [290, 405]
+      Direction     right
+      Flipped       off
+    }
+    Component {
+      Type          Scope
+      Name          "Scope"
+      Show          on
+      Position      [825, 175]
+      Direction     up
+      Flipped       off
+      Location      [72, 64; 2560, 1420]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADEA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGMA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABjAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAACbgAAAUtAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"wAAAGQAAAACAAAAZAAAAAEAAABkAAAABwAAAGQAAAAGAAAAZAAAAAUAAABkAAAABAAAAGQAAAAJAA"
+"AAZAAAAAgAAABkAAAAXQAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAABEAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AAZAAAAAQAAAAAAAAPoAAAAABk="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    ""
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux"
+      Show          off
+      Position      [745, 175]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Width"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Subsystem
+      Name          "Electrical Circuit -- Main"
+      Show          on
+      Position      [575, 205]
+      Direction     up
+      Flipped       off
+      Frame         [-90, -50; 90, 50]
+      LabelPosition [0, 0]
+      SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
+      CodeGenTarget "Generic"
+      MaskDisplayLang "2"
+      MaskIconFrame on
+      MaskIconOpaque off
+      MaskIconRotates on
+      Terminal {
+        Type          Input
+        Position      [-90, -40]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [94, -40]
+        Direction     right
+      }
+      Terminal {
+        Type          Output
+        Position      [94, 30]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-90, 15]
+        Direction     left
+      }
+      Schematic {
+        Location      [471, 661; 2015, 1262]
+        ZoomFactor    1.62858
+        SliderPosition [0, 0]
+        ShowBrowser   off
+        BrowserWidth  100
+        Component {
+          Type          Inductor
+          Name          "L1"
+          Show          on
+          Position      [285, 90]
+          Direction     left
+          Flipped       off
+          Parameter {
+            Variable      "L"
+            Value         "25e-3"
+            Show          on
+          }
+          Parameter {
+            Variable      "i_init"
+            Value         "0"
+            Show          off
+          }
+        }
+        Component {
+          Type          Capacitor
+          Name          "C1"
+          Show          on
+          Position      [405, 145]
+          Direction     down
+          Flipped       on
+          Parameter {
+            Variable      "C"
+            Value         "200e-6"
+            Show          on
+          }
+          Parameter {
+            Variable      "v_init"
+            Value         "0"
+            Show          off
+          }
+        }
+        Component {
+          Type          Resistor
+          Name          "R1"
+          Show          on
+          Position      [485, 145]
+          Direction     up
+          Flipped       off
+          Parameter {
+            Variable      "R"
+            Value         "2"
+            Show          on
+          }
+        }
+        Component {
+          Type          Voltmeter
+          Name          "Vm1"
+          Show          on
+          Position      [580, 150]
+          Direction     up
+          Flipped       off
+        }
+        Component {
+          Type          Ammeter
+          Name          "Am1"
+          Show          on
+          Position      [175, 90]
+          Direction     left
+          Flipped       off
+        }
+        Component {
+          Type          Mosfet
+          Name          "FET1"
+          Show          on
+          Position      [120, 90]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Ron"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "s_init"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "thermal"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "Rth"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "T_init"
+            Value         ""
+            Show          off
+          }
+        }
+        Component {
+          Type          Diode
+          Name          "D1"
+          Show          on
+          Position      [230, 155]
+          Direction     down
+          Flipped       off
+          Parameter {
+            Variable      "Vf"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "Ron"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "thermal"
+            Value         ""
+            Show          off
+          }
+          Parameter {
+            Variable      "Rth"
+            Value         "0"
+            Show          off
+          }
+          Parameter {
+            Variable      "T_init"
+            Value         ""
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "gate"
+          Show          on
+          Position      [40, 35]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Index"
+            Value         "1"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Output
+          Name          "i_src"
+          Show          on
+          Position      [240, 20]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Index"
+            Value         "2"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Output
+          Name          "v_load"
+          Show          on
+          Position      [655, 150]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Index"
+            Value         "3"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          VoltageSource
+          Name          "V"
+          Show          on
+          Position      [90, 160]
+          Direction     down
+          Flipped       on
+          Parameter {
+            Variable      "DiscretizationBehavior"
+            Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "StateSpaceInlining"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "v_in"
+          Show          on
+          Position      [25, 160]
+          Direction     right
+          Flipped       off
+          Parameter {
+            Variable      "Index"
+            Value         "4"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "L1"
+          SrcTerminal   1
+          Points        [230, 90]
+          Branch {
+            DstComponent  "Am1"
+            DstTerminal   2
+          }
+          Branch {
+            DstComponent  "D1"
+            DstTerminal   2
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "L1"
+          SrcTerminal   2
+          Points        [405, 90]
+          Branch {
+            DstComponent  "C1"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [485, 90]
+            Branch {
+              DstComponent  "R1"
+              DstTerminal   1
+            }
+            Branch {
+              Points        [580, 90]
+              DstComponent  "Vm1"
+              DstTerminal   1
+            }
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "C1"
+          SrcTerminal   2
+          Points        [405, 210]
+          Branch {
+            Points        [230, 210]
+            Branch {
+              Points        [90, 210]
+              DstComponent  "V"
+              DstTerminal   2
+            }
+            Branch {
+              DstComponent  "D1"
+              DstTerminal   1
+            }
+          }
+          Branch {
+            Points        [485, 210]
+            Branch {
+              DstComponent  "R1"
+              DstTerminal   2
+            }
+            Branch {
+              Points        [580, 210]
+              DstComponent  "Vm1"
+              DstTerminal   2
+            }
+          }
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "FET1"
+          SrcTerminal   1
+          DstComponent  "Am1"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "gate"
+          SrcTerminal   1
+          Points        [120, 35]
+          DstComponent  "FET1"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Am1"
+          SrcTerminal   3
+          Points        [175, 20]
+          DstComponent  "i_src"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Vm1"
+          SrcTerminal   3
+          DstComponent  "v_load"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Wire
+          SrcComponent  "V"
+          SrcTerminal   1
+          Points        [90, 90]
+          DstComponent  "FET1"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "v_in"
+          SrcTerminal   1
+          DstComponent  "V"
+          DstTerminal   3
+        }
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Constant"
+      Show          on
+      Position      [90, 205]
+      Direction     right
+      Flipped       off
+      Frame         [-10, -10; 10, 10]
+      LabelPosition [0, 13]
+      LabelAlign    up
+      Parameter {
+        Variable      "Value"
+        Value         "6"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Sum
+      Name          "Sum"
+      Show          off
+      Position      [225, 205]
+      Direction     up
+      Flipped       off
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|+-"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Relay
+      Name          "Relay"
+      Show          on
+      Position      [300, 165]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "OnSwitchValue"
+        Value         "0.2"
+        Show          on
+      }
+      Parameter {
+        Variable      "OffSwitchValue"
+        Value         "-0.2"
+        Show          on
+      }
+      Parameter {
+        Variable      "OnOutputValue"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "OffOutputValue"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "InitialState"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Step
+      Name          "Step"
+      Show          on
+      Position      [410, 220]
+      Direction     right
+      Flipped       off
+      Parameter {
+        Variable      "Time"
+        Value         "0.05"
+        Show          on
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "12"
+        Show          on
+      }
+      Parameter {
+        Variable      "After"
+        Value         "8"
+        Show          on
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux"
+      SrcTerminal   1
+      DstComponent  "Scope"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Constant"
+      SrcTerminal   1
+      DstComponent  "Sum"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sum"
+      SrcTerminal   1
+      Points        [255, 205; 255, 165]
+      DstComponent  "Relay"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Relay"
+      SrcTerminal   2
+      DstComponent  "Electrical Circuit -- Main"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Electrical Circuit -- Main"
+      SrcTerminal   2
+      Points        [695, 165; 695, 170]
+      DstComponent  "Mux"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Electrical Circuit -- Main"
+      SrcTerminal   3
+      Points        [705, 235]
+      Branch {
+        Points        [705, 315; 225, 315]
+        DstComponent  "Sum"
+        DstTerminal   3
+      }
+      Branch {
+        Points        [705, 180]
+        DstComponent  "Mux"
+        DstTerminal   3
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Step"
+      SrcTerminal   1
+      DstComponent  "Electrical Circuit -- Main"
+      DstTerminal   4
+    }
+    Annotation {
+      Name          "<html><body>\n<p>The diode is a switch that closes as the"
+"</p>\n<p>voltage across it becomes positive and </p>\n<p>opens when current t"
+"hrough it becomes</p>\n<p>negative.</p></body></html>"
+      Position      [145, 540]
+    } 
+    Annotation {
+      Name          "<html><body>\n<p>The use of ideal switch offers three maj"
+"or advantages:</p>\n<p>1. Numerical robustness</p>\n<p>2. Fast simulation spe"
+"ed</p>\n<p>3. Ease of use</p></body></html>"
+      Position      [525, 520]
+    } 
+    Annotation {
+      Name          "<html><body>\n<p>We are regulating the current</p>\n<p>fl"
+"own through the inductor and </p>\n<p>therefore the charge state through</p>"
+"\n<p>the capacitor.</p></body></html>"
+      Position      [245, 115]
+    } 
+    Annotation {
+      Name          "<html><body>\n<p>How well the control regulate</p>\n<p>th"
+"e disturbance to maintain the</p>\n<p>desired capacitor voltage</p></body></h"
+"tml>"
+      Position      [550, 285]
+    } 
+    Annotation {
+      Name          "<html><body>\n<p><span style=\" font-size:15px; font-weig"
+"ht:600;\">BUCK CONVERTER: CLOSED LOOP</span></p></body></html>"
+      Position      [325, 10]
+    } 
+  }
+  ProbeBlock {
+    Tag           "buck_converter_closedloop/Probe"
+    Probe {
+      Component     "R1"
+      Path          "Electrical Circuit -- Main"
+      Signals       {"Resistor voltage"}
+    }
+    Probe {
+      Component     "Vm1"
+      Path          "Electrical Circuit -- Main"
+      Signals       {"Measured voltage"}
+    }
+  }
+}
